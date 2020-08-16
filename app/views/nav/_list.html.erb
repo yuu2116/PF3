@@ -1,0 +1,19 @@
+<header class="header">
+    <div class="container">
+      <h1 class="logo">Hide out Cafe</h1>
+      <ul class="nav">
+        <% if user_signed_in? %>
+        <li><%= link_to 'Home', root_path, data: {"turbolinks" => false} %></li>
+        <li><%=link_to 'Mypege', user_path(current_user) %></li>
+        <li><%=link_to 'cafe-lists', shops_index_path %></li>
+        <li><%=link_to 'User_list', users_path %></li>
+         <li><%= link_to 'Logout', destroy_user_session_path,　method: :delete, data: {"turbolinks" => false}%></li>
+        <% else %>
+        <li><%= link_to 'Home', root_path, data: {"turbolinks" => false} %></li>
+        <li><%= link_to 'About', home_about_path %></li>
+        <li><%= link_to 'Login', new_user_session_path %></il>
+        <li><%= link_to 'Sign_Up', new_user_registration_path %></li>
+        <% end %>
+      </ul>
+    </div>
+  </header>

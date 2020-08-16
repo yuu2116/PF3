@@ -1,0 +1,28 @@
+<div class="row">
+	<div class="col-xs-3">
+
+<% if @user.id == current_user.id %>
+        <%= link_to edit_user_path(current_user.id) do %>
+    <% end %>
+    	<% end %>
+
+<h2 style="font-family: HiraMinPro-W6;">マイページ</h2>
+
+
+<table class="table">
+	<tr><%= attachment_image_tag(@user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg") %></tr>
+
+	<tr>
+		<th>name</th>
+		<th><%= @user.name %></th>
+	</tr>
+
+	<tr>
+		<th>introduction</th>
+		<th><%= @user.introduction %></th>
+	</tr>
+</table>
+<% if @user.id == current_user.id %>
+    <p><%= link_to "プロフィール編集", edit_user_path(@user), class: "pull-right" %></p>
+  <% end %>
+

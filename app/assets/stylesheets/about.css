@@ -1,0 +1,13 @@
+.crayon-orange-g {
+  background: linear-gradient(transparent 50%,rgba(247, 198, 104, 0.2) 50%,rgb(247, 198, 104) 75%,rgba(247, 198, 104, 0.2));
+  font-weight: bold;
+  font-size: 30px;
+}
+.marker-stripe-pink {
+  background: repeating-linear-gradient(-45deg, 
+      transparent 0 2px, 
+      #faa2b1 2px 4px
+  );
+  font-weight: bold;
+  font-size: 30px;
+}
