@@ -1,0 +1,25 @@
+<div class="container">
+	<div class="row">
+
+<%= form_for(@shop) do |f| %>
+
+	<div class="field row">
+		<%= f.label :shop_name %>
+		<%= f.text_field :shop_name, class: "col-xs-8 shop_name" %>
+	</div>
+
+	<div class="field row">
+		<%= f.label :body %>
+		<%= f.text_area :body, class: "col-xs-8 shop_body" %>
+	</div>
+	<div class="field row">
+		<%= f.label :image %>
+		<%= f.attachment_field :shop_image, class: "shop_image" %>
+	</div>
+
+	<div class="actions row">
+		<%= f.submit class: "btn btn-primary col-xs-8" %>
+	</div>
+<% end %>
+</div>
+</div>

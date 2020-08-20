@@ -1,28 +1,29 @@
-<div class="row">
-	<div class="col-xs-3">
+<h2 class="midashi">User profile</h2>
 
-<% if @user.id == current_user.id %>
-        <%= link_to edit_user_path(current_user.id) do %>
-    <% end %>
-    	<% end %>
-
-<h2 style="font-family: HiraMinPro-W6;">マイページ</h2>
-
-
-<table class="table">
-	<tr><%= attachment_image_tag(@user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg") %></tr>
-
-	<tr>
-		<th>name</th>
-		<th><%= @user.name %></th>
-	</tr>
-
-	<tr>
-		<th>introduction</th>
-		<th><%= @user.introduction %></th>
-	</tr>
-</table>
-<% if @user.id == current_user.id %>
-    <p><%= link_to "プロフィール編集", edit_user_path(@user), class: "pull-right" %></p>
-  <% end %>
-
+<div class="profile-card">
+  <div class="profile-card__inner">
+    <div class="profile-thumb">
+      <%= attachment_image_tag(@user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg") %>
+    </div>
+    <div class="profile-content">
+      <span class="profile-name"><%= @user.name %></span>
+      <span class="profile-intro"><%= @user.introduction %></span>
+      <span class="following"><a href="<%= following_user_path(@user) %>">
+    <strong id="following" class="stat">
+      <%= @user.followings.count %>
+    </strong>
+    following
+  </a></span>
+      <span class="followers"><a href="<%= followers_user_path(@user) %>">
+    <strong id="followers" class="stat">
+      <%= @user.followers.count %>
+    </strong>
+    followers
+  </a></span>
+      <span><% if @user.id == current_user.id %>
+        <p><%= link_to "プロフィール編集", edit_user_path(@user), class: "pull-right" %></p><br>
+        <% end %>
+      </span>
+      <span><% if @user.id == current_user.id %><%= link_to "新規投稿", new_shop_path, class: "pull-right" %><% end %></span>
+    </div>
+  </div>

@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_16_103525) do
+ActiveRecord::Schema.define(version: 2020_08_18_171434) do
+
+  create_table "relationships", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "follower_id"
+    t.integer "following_id"
+  end
 
   create_table "shops", force: :cascade do |t|
     t.text "shop_name"
