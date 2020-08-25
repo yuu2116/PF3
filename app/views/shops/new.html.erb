@@ -1,20 +1,21 @@
 <div class="container">
 	<div class="row">
+<h1>新規投稿</h1>
 
 <%= form_for(@shop) do |f| %>
 
 	<div class="field row">
-		<%= f.label :shop_name %>
-		<%= f.text_field :shop_name, class: "col-xs-8 shop_name" %>
+		<%= f.label :shop_name %><br>
+		<%= f.text_field :shop_name, class: "col-xs-8 ショップ名" %><br>
 	</div>
 
 	<div class="field row">
-		<%= f.label :body %>
-		<%= f.text_area :body, class: "col-xs-8 shop_body" %>
+		<%= f.label :body %><br>
+		<%= f.text_area :body, class: "col-xs-8 ショップ概要" %>
 	</div>
 	<div class="field row">
 		<%= f.label :image %>
-		<%= f.attachment_field :shop_image, class: "shop_image" %>
+		<%= f.attachment_field :shop_image, class: "shop_image" %><br>
 	</div>
 
 	<div class="actions row">

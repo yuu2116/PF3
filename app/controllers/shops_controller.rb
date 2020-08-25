@@ -5,14 +5,30 @@ class ShopsController < ApplicationController
 
   def index
     @shops = Shop.all
-    @shop = Shop.new
     @user = current_user
+  end
+  def show
+    @shop = Shop.find(params[:id])
+    @user = @shop.user
+    @shop_comment = ShopComment.new
   end
 
   def edit
+     @shop = Shop.find(params[:id])
+    if @shop.user == current_user
+            render "edit"
+    else
+       redirect_to shops_path
+    end
   end
 
   def update
+     @shop = Shop.find(params[:id])
+    if @shop.update(shop_params)
+      redirect_to shop_path(@shop)
+    else
+      render "edit"
+    end
   end
 
   def create
@@ -23,9 +39,12 @@ class ShopsController < ApplicationController
   end
 
   def destroy
+    shop = Shop.find(params[:id])
+    shop.destroy
+    redirect_to shops_path
 
   end
    def shop_params
-    params.require(:shop).permit(:name, :body)
+    params.require(:shop).permit(:shop_name, :body, :shop_image)
   end
 end

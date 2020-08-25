@@ -3,9 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-         attachment :profile_image, destroy: false
-         has_many :shops, dependent: :destroy
-         has_many :following_relationships, foreign_key: "follower_id", class_name: "Relationship", dependent: :destroy
+  has_many :following_relationships, foreign_key: "follower_id", class_name: "Relationship", dependent: :destroy
   has_many :followings, through: :following_relationships
   has_many :follower_relationships, foreign_key: "following_id", class_name: "Relationship", dependent: :destroy
   has_many :followers, through: :follower_relationships
@@ -20,4 +18,8 @@ class User < ApplicationRecord
   def unfollow!(other_user)
     following_relationships.find_by(following_id: other_user.id).destroy
   end
+   attachment :profile_image, destroy: false
+   has_many :favorites, dependent: :destroy
+   has_many :shop_comments, dependent: :destroy
+   has_many :shops, dependent: :destroy
 end

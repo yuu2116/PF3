@@ -35,7 +35,7 @@ width: 100%;
 
 .header{
 height:60px;
-background:#00DAFC;
+background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
 color:#fff;
 width:100%;
 }
@@ -85,7 +85,7 @@ height:35px
 .bottom-nav .nav{float:none; margin:0}
 .bottom-nav .nav a{ padding: 0 25px; line-height:35px}
 .fixed-top, .fixed-bottom{
-background:#02BDD6;
+background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
 position:fixed;
 top:0;
 }

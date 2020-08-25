@@ -1,0 +1,73 @@
+<div class="container">
+	<div class="row">
+		<h2>投稿詳細</h2>
+
+		<div class="col-xs-6">
+
+			<%= attachment_image_tag(@shop, :shop_image, :fill, 350, 350, fallback: "no_image.jpg") %>
+		</div>
+
+		<div class="col-xs-6">
+
+			<h3><P>ショップ名：<%= @shop.shop_name %></P></h3>
+
+			<P>ユーザー名：<%= @shop.user.name %></P>
+			<% if @shop.favorited_by?(current_user) %>
+
+			<%= link_to shop_favorites_path(@shop), method: :delete do %>
+			<i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+			<%= @shop.favorites.count %> いいね
+			<% end %>
+			<% else %>
+
+			<%= link_to shop_favorites_path(@shop), method: :post do %>
+			<i class="fa fa-heart-o" aria-hidden="true"></i>
+			<%= @shop.favorites.count %> いいね
+			<% end %>
+
+			<% end %>
+
+			<h2>ショップ概要</h2>
+			<%= @shop.body%>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-6">
+			<h2>コメント一覧</h2>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>user</th>
+						<th>comment</th>
+						<th colspan="3"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @shop.shop_comments.each do |shop_comment| %>
+					<tr>
+						<td><%= attachment_image_tag(@user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg") %></td>
+						<td><%= shop_comment.comment %></td>
+						<td><%= shop_comment.created_at.strftime('%Y/%m/%d') %></td>
+						<% end %>
+					</tr>
+				</tbody>
+			</table>
+
+			<%= form_for [@shop, @shop_comment] do |f| %>
+			<%= f.text_area :comment, rows:'3', class: "form-control",placeholder: "コメントをここに" %>
+
+			<%= f.submit "送信する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
+			<% end %>
+
+			<% if @user.id == current_user.id %>
+			<td><%= link_to "Edit", edit_shop_path(@shop), class: "btn-sm btn-success edit_shop_#{@shop.id}" %></td>
+			<td><%= link_to "Destroy", shop_path(@shop), method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn-sm btn-danger destroy_shop_#{@shop.id}" %></td>
+			<% end %>
+		</div>
+	</div>
+</div>
+
+
+

@@ -10,13 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_18_171434) do
+ActiveRecord::Schema.define(version: 2020_08_24_124507) do
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "shop_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "relationships", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "follower_id"
     t.integer "following_id"
+  end
+
+  create_table "shop_comments", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "shop_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "comment"
   end
 
   create_table "shops", force: :cascade do |t|

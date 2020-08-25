@@ -1,2 +1,26 @@
-<h1>Shops#edit</h1>
-<p>Find me in app/views/shops/edit.html.erb</p>
+<div class="container">
+	<div class="row">
+	<h1>投稿編集</h1>
+
+<%= form_for(@shop) do |f| %>
+
+	<div class="field row">
+		<%= f.label :shop_name %><br>
+		<%= f.text_field :shop_name, class: "col-xs-8 shop_name" %><br>
+	</div>
+
+	<div class="field row">
+		<%= f.label :body %><br>
+		<%= f.text_area :body, class: "col-xs-8 shop_body" %><br>
+	</div>
+	<div class="field row">
+		<%= f.label :image %><br>
+		<%= f.attachment_field :shop_image, class: "shop_image" %><br>
+	</div>
+
+	<div class="actions row">
+		<%= f.submit class: "btn btn-primary col-xs-8" %>
+	</div>
+<% end %>
+</div>
+</div>

@@ -17,7 +17,7 @@
 .profile-card{
   width: 100%;
   margin: auto;
-  height: 500px;
+  height: 600px;
   max-width:700px;
   position: relative;
   background: #fff; /*背景の色*/
@@ -27,10 +27,10 @@
 
 .profile-card:before{
  width:120%;
- height:200px;
+ height:300px;
  content:"";
  transform:skew(15deg,10deg);
- background: #70b7ff; /*斜め背景の色*/
+ background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);/*斜め背景の色*/
  position:  absolute;
  top:-15%;
  left:-10%;
@@ -82,7 +82,8 @@
 .midashi {
   position: relative;
   padding: 1rem 2rem calc(1rem + 10px);
-  background: #fff100;
+  background-image: linear-gradient(-225deg, #FFFEFF 0%, #D7FFFE 100%);
+
   text-align: center;
   margin-bottom: 100px;
 }
@@ -96,4 +97,13 @@
   content: '';
   border: 4px solid #000;
 }
+
+
+
+
+
+
+
+
+
 
