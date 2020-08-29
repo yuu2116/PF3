@@ -9,7 +9,7 @@ class ShopsController < ApplicationController
   end
   def show
     @shop = Shop.find(params[:id])
-    @user = @shop.user
+    @user = current_user
     @shop_comment = ShopComment.new
   end
 
