@@ -10,20 +10,20 @@
       <span class="profile-intro"><%= @user.introduction %></span>
       <span class="following"><a href="<%= following_user_path(@user) %>">
         <strong id="following" class="stat">
-          <%= @user.followings.count %>
-        </strong>
-        following
-      </a></span>
-      <span class="followers"><a href="<%= followers_user_path(@user) %>">
-        <strong id="followers" class="stat">
-          <%= @user.followers.count %>
-        </strong>
-        followers
-      </a></span>
-      <span><% if @user.id == current_user.id %>
-        <div><%= link_to "プロフィール編集", edit_user_path(@user), class: "pull-right" %></div><br>
-        <% end %>
-      </span>
-      <span><% if @user.id == current_user.id %><%= link_to "新規投稿", new_shop_path, class: "btn-sm btn-success pull-right" %><% end %></span>
-    </div>
+         <%= @user.followings.count %>
+       </strong>
+       following
+     </a></span>
+     <span class="followers"><a href="<%= followers_user_path(@user) %>">
+      <strong id="followers" class="stat">
+        <%= @user.followers.count %>
+      </strong>
+      followers
+    </a></span><br>
+    <span><% if @user.id == current_user.id %>
+      <div><%= link_to "プロフィール編集", edit_user_path(@user), class: "btn-sm btn-success pull-right" %></div><br><br>
+      <% end %>
+    </span>
+    <span><% if @user.id == current_user.id %><%= link_to "新規投稿", new_shop_path, class: "btn-sm btn-success pull-right" %><% end %></span>
   </div>
+</div>

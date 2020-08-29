@@ -11,22 +11,22 @@
 	<tbody>
 		<% @users.each do |user| %>
 		<tr>
-			<td><%= attachment_image_tag(user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg") %></td>
+			<td><%= attachment_image_tag(user, :profile_image, :fill, 90, 100, fallback: "no_image.jpg") %></td>
 			<td><%= user.name %></td>
-			<td><%= link_to "Show", user_path(user), class: "user_#{user.id}" %></td>
+			<td><%= link_to "もっと見る", user_path(user), class:"btn btn-primary" %></td>
 			<% @user ||= current_user %>
 
-			  <td><a href="<%= following_user_path(user) %>">
-			      <%= user.followings.count %>
-			    </strong>
-			    フォロー
-			  </a></td>
-			  <td><a href="<%= followers_user_path(user) %>">
-				 <%= user.followers.count %>
-				 </strong>
-				フォロワー
-				 </a></td>
-		   </tr>
-		   <% end %>
-	</tbody>
+			<td><a href="<%= following_user_path(user) %>">
+				<%= user.followings.count %>
+			</strong>
+			フォロー
+		</a></td>
+		<td><a href="<%= followers_user_path(user) %>">
+			<%= user.followers.count %>
+		</strong>
+		フォロワー
+	</a></td>
+</tr>
+<% end %>
+</tbody>
 </table>

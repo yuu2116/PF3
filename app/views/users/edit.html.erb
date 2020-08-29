@@ -1,9 +1,12 @@
-<h2>プロフィール編集</h2>
+<div class="container">
+	<div class="row">
 
-<%= form_for(@user) do |f| %>
+		<h2>プロフィール編集</h2>
 
-	<!-- エラーメッセージ表示-->
-	<% if @user.errors.any? %>
+		<%= form_for(@user) do |f| %>
+
+		<!-- エラーメッセージ表示-->
+		<% if @user.errors.any? %>
 		<div id="error_explanation">
 			<h3><%= @user.errors.count %>error prohibited this obj from being saved:</h3><
 			<ul>
@@ -12,26 +15,32 @@
 				<% end %>
 			</ul>
 		</div>
-	<% end %>
-	<!-- エラーメッセージ表示-->
+		<% end %>
+		<!-- エラーメッセージ表示-->
 
-	<div class="field">
-		<%= f.label :name %>
-		<%= f.text_field :name, class: "name" %>
+		<div class="field row">
+			<%= f.label :name %><br>
+			<%= f.text_field :name, class: "col-xs-3 name" %>
+		</div>
+
+		<div class="field row">
+			<%= f.label :introduction %><br>
+			<%= f.text_area :introduction, rows:'5', class: "col-xs-3 introduction" %>
+		</div>
+
+		<div class="field">
+			<%= f.label :image %>
+			<%= f.attachment_field :profile_image, class: "user_image" %><br>
+		</div>
+
+		<div class="actions row">
+			<%= f.submit class: "btn btn-primary col-xs-2" %>
+		</div>
+
+		<% end %>
 	</div>
+</div>
 
-	<div class="field">
-		<%= f.label :image %>
-		<%= f.attachment_field :profile_image, class: "user_image" %>
-	</div>
 
-	<div class="field">
-		<%= f.label :introduction %>
-		<%= f.text_area :introduction, class: "introduction" %>
-	</div>
 
-	<div class="actions">
-		<%= f.submit %>
-	</div>
 
-<% end %>

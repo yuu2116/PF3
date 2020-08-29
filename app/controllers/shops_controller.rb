@@ -4,7 +4,7 @@ class ShopsController < ApplicationController
   end
 
   def index
-    @shops = Shop.all
+    @shops = Shop.page(params[:page]).reverse_order
     @user = current_user
   end
   def show
