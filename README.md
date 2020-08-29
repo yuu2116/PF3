@@ -1,24 +1,24 @@
-# README
+# hideout cafe
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+個人経営などのカフェや地元に密着した喫茶店などの情報を共有するサイトです。
 
-Things you may want to cover:
+### サイトテーマ
+行きづらい喫茶店を無くそう
 
-* Ruby version
+### テーマを選んだ理由
+現在コロナウイルスが流行している中、個人営業などの喫茶店が営業しているのかどうかわからなかったり、カフェの室内的な広さやウイルスの対策などの
+情報の共有を行えるサイトです。個人営業の喫茶店などは、事業主が高齢であったり、金銭的な問題でHPが作られていなかったりするためこの様なテーマに
+しました。
 
-* System dependencies
+### ターゲットユーザ
+カフェ巡りが趣味の方
 
-* Configuration
+### 主な利用シーン
+HPなどがない喫茶店の情報を探す時
 
-* Database creation
+## 設計書
 
-* Database initialization
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### 機能一覧
+https://docs.google.com/spreadsheets/d/1XzV2WH_4-dTCGrt0GOHcyY0xq2cGscGFpcejdbFKO48/edit#gid=0
