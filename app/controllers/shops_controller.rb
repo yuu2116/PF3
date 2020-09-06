@@ -36,6 +36,10 @@ class ShopsController < ApplicationController
     @shop = Shop.new(shop_params)
     @shop.user_id = current_user.id
     @shop.save
+    tags = Vision.get_image_data(@shop.shop_image)
+     tags.each do |tag|
+       @shop.tags.create(name: tag)
+     end
     redirect_to shops_path
   end
 

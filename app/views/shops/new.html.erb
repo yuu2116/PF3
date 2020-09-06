@@ -2,7 +2,7 @@
 	<div class="row">
 		<h1>新規投稿</h1>
 
-		<%= form_for(@shop) do |f| %>
+		<%= form_with model: @shop, url:'/shops', local:true do |f| %>
 
 		<div class="field row">
 			<%= f.label :店名 %><br>

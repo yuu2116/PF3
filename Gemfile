@@ -77,6 +77,8 @@ group :production do
 end
 gem 'kaminari','~> 1.2.1'
 gem 'recaptcha', require: "recaptcha/rails"
+gem 'dotenv-rails'
+gem 'pry-rails'
 
 
 
